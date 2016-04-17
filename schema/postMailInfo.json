@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "ipost/schema/postMailInfo.json",
+  "title": "Tweet",
+  "type": "object",
+  "required": ["text"],
+  "properties": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "time": {
+        "type": "number",
+        "description": "UNIX timestamp"
+      },
+      "imageData": {
+        "type": "string",
+        "description": "Base64 encoded image string"
+      }
+    }
+  }
+}

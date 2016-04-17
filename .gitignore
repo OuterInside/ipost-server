@@ -1,0 +1,12 @@
+*.
+!.gitignore
+
+# iPost
+ipost
+ipost-server
+photo/*
+
+# Windows
+Thumbs.db
+
+!.gitkeep
