@@ -5,8 +5,10 @@
 ipost
 ipost-server
 photo/*
+keys/*.pem
 
 # Windows
 Thumbs.db
 
 !.gitkeep
+
