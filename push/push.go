@@ -2,6 +2,10 @@ package push
 
 import (
   "fmt"
+  "net/http"
+  "net/url"
+  "strings"
+  "io/ioutil"
   apns "github.com/anachronistic/apns"
 )
 
@@ -26,5 +30,22 @@ func PushToIos(message string) {
 }
 
 func PushToAndroid(message string) {
+  client := &http.Client{}
+
+  //data := url.Values{"registration_ids": "APA91bE8FHm5E7yy4qVAvmb6A8woQTUu7iMVR-zSKqNpJHCsDEy96LI-3fTXR5CNAdh5d0XX7BpSSIwMVMrlbCDal1S1i3Ah-0WzIxOxMWO-e4XAWsxtBdkkMGOsfF7fTH3SZxtG2hJAweGExTxQCTPhAxnojRtT8w", "data": {"message": "bar"}}  //data := url.Values{"data": {"message": message} }
+
+  req, _ := http.NewRequest(
+    "POST",
+    "https://android.googleapis.com/gcm/send",
+    strings.NewReader(data.Encode()),
+  )
+  req.Header.Set("Content-Type", "application/json")
+  req.Header.Set("Authorization", "AIzaSyBgf-rHJQ8g2hC2dhpwkugiI6Judx68V24")
+
+  resp, _ := client.Do(req)
+  body, _ := ioutil.ReadAll(resp.Body)
+  defer resp.Body.Close()
+
+  println(string(body))
 }
 
